@@ -21,11 +21,36 @@ const serviceLinks = [
 ];
 
 const socialLinks = [
-    { icon: 'fa-brands fa-linkedin-in', href: '#', label: 'LinkedIn', hoverClass: 'hover:text-blue-400' },
-    { icon: 'fa-brands fa-facebook-f', href: '#', label: 'Facebook', hoverClass: 'hover:text-blue-500' },
-    { icon: 'fa-brands fa-x-twitter', href: '#', label: 'Twitter', hoverClass: 'hover:text-sky-400' },
-    { icon: 'fa-brands fa-instagram', href: '#', label: 'Instagram', hoverClass: 'hover:text-rose-400' },
-    { icon: 'fa-brands fa-youtube', href: '#', label: 'YouTube', hoverClass: 'hover:text-rose-500' },
+    {
+        icon: 'fa-brands fa-linkedin-in',
+        href: 'https://linkedin.com',
+        label: 'LinkedIn',
+        hoverClass: 'hover:text-blue-400'
+    },
+    {
+        icon: 'fa-brands fa-facebook-f',
+        href: 'https://facebook.com',
+        label: 'Facebook',
+        hoverClass: 'hover:text-blue-500'
+    },
+    {
+        icon: 'fa-brands fa-x-twitter',
+        href: 'https://twitter.com',
+        label: 'Twitter',
+        hoverClass: 'hover:text-sky-400'
+    },
+    {
+        icon: 'fa-brands fa-instagram',
+        href: 'https://instagram.com',
+        label: 'Instagram',
+        hoverClass: 'hover:text-rose-400'
+    },
+    {
+        icon: 'fa-brands fa-youtube',
+        href: 'https://youtube.com',
+        label: 'YouTube',
+        hoverClass: 'hover:text-rose-500'
+    },
 ];
 
 const scrollTo = (href) => {
@@ -257,13 +282,26 @@ export default function Footer() {
                         © {new Date().getFullYear()} TaxWise Consultancy. All rights reserved.
                     </p>
                     <div className="flex items-center gap-6 flex-wrap justify-center">
-                        {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map((link) => (
+                        {[
+                            {
+                                label: 'Privacy Policy',
+                                href: '/privacy-policy'
+                            },
+                            {
+                                label: 'Terms of Service',
+                                href: '/terms-of-service'
+                            },
+                            {
+                                label: 'Disclaimer',
+                                href: '/disclaimer'
+                            },
+                        ].map((link) => (
                             <a
-                                key={link}
-                                href="#"
+                                key={link.label}
+                                href={link.href}
                                 className="text-white/30 hover:text-white/60 text-xs transition-colors duration-200"
                             >
-                                {link}
+                                {link.label}
                             </a>
                         ))}
                     </div>
