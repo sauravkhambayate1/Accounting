@@ -1,25 +1,102 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
+
+import Hero from './components/Hero';
+
+import Navbar from './components/Navbar';
+import Services from './components/Services';
+import WhyChooseUs from './components/WhyChooseUs';
+import About from './components/About';
+import Process from './components/Process';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
+import ConsultationModal from './components/ConsultationModal';
+import GlobalCorporate from './components/GlobalCorporate';
+import IndianCorporate from './components/IndianCorporate';
+
+
+// LANDING PAGE
+function LandingPage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen overflow-hidden">
+      <Hero />
     </div>
   );
 }
 
-export default App;
+
+// GLOBAL CORPORATE WEBSITE
+function GlobalCorporatePage() {
+  return (
+    <div className="min-h-screen font-sans">
+      <Navbar />
+
+      <GlobalCorporate />
+
+      <Services />
+      <WhyChooseUs />
+      <About />
+      <Process />
+      <Testimonials />
+      <FAQ />
+      <Footer />
+      <ConsultationModal />
+    </div>
+  );
+}
+
+
+// INDIAN CORPORATE WEBSITE
+function IndianCorporatePage() {
+  return (
+    <div className="min-h-screen font-sans">
+      <Navbar />
+
+      <IndianCorporate />
+
+      <Services />
+      <WhyChooseUs />
+      <About />
+      <Process />
+      <Testimonials />
+      <FAQ />
+      <Footer />
+      <ConsultationModal />
+    </div>
+  );
+}
+
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+
+        {/* Landing Page */}
+        <Route
+          path="/"
+          element={<LandingPage />}
+        />
+
+        {/* Global Corporate */}
+        <Route
+          path="/global-corporate"
+          element={<GlobalCorporatePage />}
+        />
+
+        {/* Indian Corporate */}
+        <Route
+          path="/indian-corporate"
+          element={<IndianCorporatePage />}
+        />
+
+      </Routes>
+    </BrowserRouter>
+  );
+}
