@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const quickLinks = [
     { label: 'Home', href: '/' },

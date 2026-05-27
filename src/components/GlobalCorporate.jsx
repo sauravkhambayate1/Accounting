@@ -1,17 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import {
-    Globe,
-    TrendingUp,
-    Zap,
-    Clock,
-    Shield,
-    ArrowRight,
-    Award,
-    FileText,
-    BarChart3,
-    DollarSign
-} from 'lucide-react';
+import { Globe, TrendingUp, ArrowRight, Award, FileText, BarChart3, DollarSign } from 'lucide-react';
 
 import Navbar from './Navbar';
 const services = [
