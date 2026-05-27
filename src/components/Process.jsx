@@ -4,6 +4,7 @@ import {
     MessageCircle,
     ClipboardList,
     FileCheck,
+    FileText,
     Rocket,
     ArrowRight,
 } from "lucide-react";
@@ -18,6 +19,7 @@ const steps = [
         duration: "Day 1",
         color: "primary",
     },
+
     {
         number: "02",
         icon: ClipboardList,
@@ -27,6 +29,7 @@ const steps = [
         duration: "Day 2–3",
         color: "gold",
     },
+
     {
         number: "03",
         icon: FileCheck,
@@ -36,8 +39,19 @@ const steps = [
         duration: "Day 3–5",
         color: "emerald",
     },
+
     {
         number: "04",
+        icon: FileText,
+        title: "Development of SOP & Checklist",
+        description:
+            "We develop SOPs and checklists to turn chaotic, person-dependent workflows into reliable, system-driven operations.",
+        duration: "Day 4–6",
+        color: "violet",
+    },
+
+    {
+        number: "05",
         icon: Rocket,
         title: "Delivery & Support",
         description:
@@ -70,6 +84,14 @@ const colorMap = {
         icon: "text-emerald-600",
         badge: "bg-emerald-600 text-white",
         number: "text-emerald-200",
+    },
+
+    violet: {
+        ring: "ring-violet-200",
+        bg: "bg-violet-100",
+        icon: "text-violet-600",
+        badge: "bg-violet-600 text-white",
+        number: "text-violet-200",
     },
 
     rose: {
@@ -107,7 +129,7 @@ export default function Process() {
         <section
             id="process"
             ref={sectionRef}
-            className="py-24 bg-white relative overflow-hidden"
+            className="py-12 bg-white relative overflow-hidden"
         >
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-slate-50 rounded-full blur-3xl pointer-events-none" />
 
@@ -121,7 +143,7 @@ export default function Process() {
                     </span>
 
                     <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-5">
-                        Simple 4-Step{" "}
+                        Simple 5-Step{" "}
                         <span className="gradient-text-blue">
                             Process
                         </span>
@@ -137,9 +159,9 @@ export default function Process() {
                 {/* Steps */}
                 <div className="relative">
                     {/* Connecting line (desktop) */}
-                    <div className="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-primary-200 via-gold-200 via-emerald-200 to-rose-200" />
+                    <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-px bg-gradient-to-r from-primary-200 via-gold-200 via-emerald-200 via-violet-200 to-rose-200" />
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
                         {steps.map((step, index) => {
                             const Icon = step.icon;
 
@@ -150,8 +172,7 @@ export default function Process() {
                                     key={step.number}
                                     className="reveal flex flex-col items-center text-center group"
                                     style={{
-                                        transitionDelay: `${index * 0.1
-                                            }s`,
+                                        transitionDelay: `${index * 0.1}s`,
                                     }}
                                 >
                                     {/* Icon circle */}

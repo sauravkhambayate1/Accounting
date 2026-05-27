@@ -156,64 +156,6 @@ export default function GlobalCorporate() {
                     </div>
                 </div>
             </section>
-
-            {/* Features Section */}
-            <section
-                ref={sectionRef}
-                className="py-24 bg-white"
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                    <div className="text-center mb-16 reveal">
-                        <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-5">
-                            Why Choose FinPro for{' '}
-                            <span className="gradient-text-blue">
-                                Global Operations
-                            </span>
-                        </h2>
-
-                        <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-                            Trusted by multinational enterprises to handle
-                            complex international accounting needs.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {features.map((feature) => {
-                            const Icon = feature.icon;
-
-                            return (
-                                <div
-                                    key={feature.title}
-                                    className="reveal group"
-                                >
-                                    <div className="bg-white rounded-2xl p-7 border border-slate-100 h-full hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-
-                                        <div
-                                            className={`w-14 h-14 rounded-2xl ${feature.bg} flex items-center justify-center mb-5`}
-                                        >
-                                            <Icon
-                                                className={`w-7 h-7 ${feature.color}`}
-                                            />
-                                        </div>
-
-                                        <h3 className="text-xl font-bold text-slate-900 mb-3">
-                                            {feature.title}
-                                        </h3>
-
-                                        <p className="text-slate-500 text-sm leading-relaxed">
-                                            {feature.description}
-                                        </p>
-
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-
-            {/* Services Section */}
             <section className="py-12 bg-slate-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -264,27 +206,6 @@ export default function GlobalCorporate() {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-24 bg-primary-900 relative overflow-hidden">
-
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-
-                    <h2 className="font-display text-4xl font-bold text-white mb-6">
-                        Ready to Scale Globally?
-                    </h2>
-
-                    <p className="text-lg text-white/60 max-w-2xl mx-auto mb-8">
-                        Let our global team handle your accounting complexity
-                        while you focus on growth.
-                    </p>
-
-                    <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 font-semibold rounded-xl hover:shadow-gold-glow transition-all duration-300">
-                        Get Started Today
-                        <ArrowRight className="w-5 h-5" />
-                    </button>
-
-                </div>
-            </section>
         </div>
     );
 }

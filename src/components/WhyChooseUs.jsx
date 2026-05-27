@@ -107,7 +107,7 @@ export default function WhyChooseUs() {
                         Why Choose Us
                     </div>
                     <h2 className="reveal font-display text-4xl md:text-5xl font-bold text-white mb-5">
-                        The FinPro{' '}
+                        The One Page || Tax & Finance Solutions
                         <span className="gradient-text">Advantage</span>
                     </h2>
                     <p className="reveal text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
@@ -144,7 +144,7 @@ export default function WhyChooseUs() {
                             <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
                                 Ready to simplify your finances?
                             </h3>
-                            <p className="text-white/60">Join 1,200+ businesses who trust FinPro for their financial success.</p>
+                            <p className="text-white/60">Join 1,200+ businesses who trust The One Page || Tax & Finance Solutions for their financial success.</p>
                         </div>
                         <button
                             onClick={() => {

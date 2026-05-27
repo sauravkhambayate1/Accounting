@@ -15,69 +15,69 @@ import {
 
 const testimonials = [
     {
-        name: "Rajesh Mehta",
-        role: "CEO, TechVenture Pvt Ltd",
-        company: "Mumbai, India",
+        name: "Mahaveer Bastawade",
+        role: "BNI Vishwa, Urban Home Decor",
+        company: "18th March, 2026",
         avatar:
-            "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150",
+            "https://randomuser.me/api/portraits/men/32.jpg",
         rating: 5,
-        text: "FinPro has been our trusted accounting partner for 5 years. Their GST compliance work is exceptional, and the team is always available when we need them. They saved us over ₹15 lakhs in tax this year alone!",
-        service: "GST Services & Tax Planning",
+        text: "I have been working with One Page Tax Solutions for over Three years... Their expertise has transformed how I manage taxes for my Business. They streamlined my compliance processes, uncovered deductions I overlooked, & saved me significant amounts on liabilities—turning complex filings into a stress-free experience.",
+        service: "Business Taxation & Compliance",
     },
 
     {
-        name: "Sarah Al-Rashid",
-        role: "Managing Director, Al-Rashid Trading LLC",
-        company: "Dubai, UAE",
+        name: "Vaibhav Jadhav",
+        role: "BNI Vishwa, Vaibhav B Jadhav",
+        company: "29th January, 2025",
         avatar:
-            "https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg?auto=compress&cs=tinysrgb&w=150",
+            "https://randomuser.me/api/portraits/men/45.jpg",
         rating: 5,
-        text: "Setting up our company in UAE was seamless with FinPro. They handled everything from VAT registration to ongoing compliance. Their Dubai team is highly professional and responsive.",
-        service: "Company Registration & VAT",
+        text: "One page tax solution is one of the best tax consultancy in sangli. The team is very good for follow up..",
+        service: "Tax Consultancy",
     },
 
     {
-        name: "Amit Sharma",
-        role: "Founder, GreenLeaf Exports",
-        company: "Delhi, India",
+        name: "Vijay Kulkarni",
+        role: "BNI Vishwa, Magic Flairs",
+        company: "17th January, 2025",
         avatar:
-            "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150",
+            "https://randomuser.me/api/portraits/men/52.jpg",
         rating: 5,
-        text: "The bookkeeping and payroll services are a lifesaver for our 80-person team. Reports are always ready on time, and the dedicated manager knows our business inside out.",
-        service: "Bookkeeping & Payroll",
+        text: "Very good service, very good, dedicated team, helpful nature. Modern approach. Thank you.",
+        service: "Accounting & Advisory",
     },
 
     {
-        name: "Priya Krishnan",
-        role: "CFO, MedCare Hospitals",
-        company: "Bangalore, India",
+        name: "Akshay Kolap",
+        role: "BNI Vishwa, JK Paper Bags",
+        company: "15th November, 2024",
         avatar:
-            "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150",
+            "https://randomuser.me/api/portraits/men/60.jpg",
         rating: 5,
-        text: "FinPro's audit team is thorough, professional, and communicative. The internal audit they conducted helped us identify process gaps that saved us significant costs. Highly recommended.",
-        service: "Audit Services",
+        text: 'I highly recommend "one page tax solutions" For business forecasting, planning, goal setting and accounting and much more. Thank you rahul sir',
+        service: "Business Planning & Accounting",
     },
 
     {
-        name: "Mohammed Al-Farsi",
-        role: "Owner, Al-Farsi Construction",
-        company: "Abu Dhabi, UAE",
+        name: "Nitin Chougule",
+        role: "BNI Vishwa, Bassappa foods/Bassappa Halwai",
+        company: "22nd March, 2024",
         avatar:
-            "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=150",
+            "https://randomuser.me/api/portraits/men/70.jpg",
         rating: 5,
-        text: "I was struggling with financial management until I found FinPro. Their financial consulting helped us restructure our business finances and we grew 40% in revenue the following year.",
-        service: "Financial Consulting",
+        text: "WE BASSAPPA FOODS RECOMMEND ONE PAGE TAX SOLUTION FOR THERE PROMPT SERVICE PROPER GUIDANCE TRANSPERENCY FUTURE FINANCIAL GOALS N VISION SETTING PROPER SOP FOR VARIOUS FIRMS N CO.",
+        service: "Financial Guidance & SOP Setup",
     },
 
     {
-        name: "Anita Patel",
-        role: "Director, Fashion Hub India",
-        company: "Ahmedabad, India",
+        name: "Jayjeet Paritkar",
+        role: "BNI Vishwa, Jsons Engineers",
+        company: "16th June, 2023",
         avatar:
-            "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=150",
+            "https://randomuser.me/api/portraits/men/80.jpg",
         rating: 5,
-        text: "Switched from our previous CA firm to FinPro 2 years ago. Best decision we made. Their pricing is fair, their service is exceptional, and they always go above and beyond.",
-        service: "Tax Filing & Bookkeeping",
+        text: "Dear Rahul sir, One page tax solution is very informative for all of us. Also I am very thankful for all your services. Best rgds",
+        service: "Tax & Financial Services",
     },
 ];
 
@@ -166,7 +166,7 @@ export default function Testimonials() {
         <section
             id="testimonials"
             ref={sectionRef}
-            className="py-24 bg-slate-50 relative overflow-hidden"
+            className="py-15 bg-slate-50 relative overflow-hidden"
         >
 
             {/* Background Blur */}

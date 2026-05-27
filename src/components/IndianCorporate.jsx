@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import {
     Landmark, BarChart3, TrendingUp, Target, Zap, Users, ArrowRight,
-    FileText, DollarSign, Award, CheckCircle2, GraduationCap
+    FileText, DollarSign, Award, CheckCircle2
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
