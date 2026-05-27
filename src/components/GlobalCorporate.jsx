@@ -14,58 +14,6 @@ import {
 } from 'lucide-react';
 
 import Navbar from './Navbar';
-
-const features = [
-    {
-        icon: Globe,
-        title: 'Global Expertise',
-        description:
-            'Multi-country tax compliance, transfer pricing, international expansion support.',
-        color: 'text-blue-500',
-        bg: 'bg-blue-500/10',
-    },
-    {
-        icon: TrendingUp,
-        title: 'Scalable Solutions',
-        description:
-            'Grow your business with our flexible, scalable accounting infrastructure.',
-        color: 'text-gold-500',
-        bg: 'bg-gold-500/10',
-    },
-    {
-        icon: Zap,
-        title: 'Real-Time Insights',
-        description:
-            'Live dashboards, consolidated reporting, and instant financial visibility.',
-        color: 'text-emerald-500',
-        bg: 'bg-emerald-500/10',
-    },
-    {
-        icon: Shield,
-        title: 'Enterprise Security',
-        description:
-            'ISO 27001 certified, SOC 2 compliant, dedicated security protocols.',
-        color: 'text-rose-500',
-        bg: 'bg-rose-500/10',
-    },
-    {
-        icon: Clock,
-        title: '24/7 Support',
-        description:
-            'Global support team across time zones, always available when you need us.',
-        color: 'text-cyan-500',
-        bg: 'bg-cyan-500/10',
-    },
-    {
-        icon: Award,
-        title: 'Certified Team',
-        description:
-            'CPA, CA, CMA professionals with multinational accounting experience.',
-        color: 'text-violet-500',
-        bg: 'bg-violet-500/10',
-    },
-];
-
 const services = [
     {
         name: 'Multi-Country Tax Compliance',

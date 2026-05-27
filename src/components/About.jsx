@@ -1,12 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Award, Target, Users, CheckCircle2, ArrowRight } from 'lucide-react';
-
-const milestones = [
-    { year: '2006', event: 'Founded in Mumbai, India' },
-    { year: '2012', event: 'Expanded to UAE operations' },
-    { year: '2018', event: 'ISO 9001:2015 Certified' },
-    { year: '2023', event: '1,200+ Clients Served' },
-];
+import { Award, Target, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const values = [
     {
@@ -70,40 +63,6 @@ export default function About() {
                             </div>
                         </div>
 
-                        {/* Floating stat cards */}
-                        {/* <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-card-hover px-5 py-4 flex items-center gap-3 border border-slate-100">
-                            <div className="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center">
-                                <Users className="w-5 h-5 text-primary-600" />
-                            </div>
-
-                            <div>
-                                <p className="text-2xl font-bold text-slate-900 leading-tight">50+</p>
-                                <p className="text-slate-500 text-xs">Qualified CAs</p>
-                            </div>
-                        </div> */}
-
-                        {/* Timeline */}
-                        {/* <div className="absolute left-6 top-6 hidden xl:block">
-                            <div className="bg-white/95 backdrop-blur rounded-2xl shadow-card p-4 max-w-[160px] border border-slate-100">
-                                <p className="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wider">
-                                    Our Journey
-                                </p>
-
-                                <div className="flex flex-col gap-2.5">
-                                    {milestones.map((m) => (
-                                        <div key={m.year} className="flex items-start gap-2">
-                                            <span className="text-[10px] font-bold text-primary-600 bg-primary-50 px-1.5 py-0.5 rounded mt-0.5 flex-shrink-0">
-                                                {m.year}
-                                            </span>
-
-                                            <span className="text-[11px] text-slate-600 leading-tight">
-                                                {m.event}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div> */}
                     </div>
 
                     {/* Right: Content */}
