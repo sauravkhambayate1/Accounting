@@ -19,6 +19,7 @@ import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
 import GlobalCorporate from './components/GlobalCorporate';
 import IndianCorporate from './components/IndianCorporate';
+import ScrollToTop from './components/ScrollTotop/ScrollToTop';
 
 
 // LANDING PAGE
@@ -46,7 +47,6 @@ function GlobalCorporatePage() {
       <Testimonials />
       <FAQ />
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }
@@ -67,7 +67,6 @@ function IndianCorporatePage() {
       <Testimonials />
       <FAQ />
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }
@@ -76,6 +75,7 @@ function IndianCorporatePage() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
 
         {/* Landing Page */}

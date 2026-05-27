@@ -1,15 +1,5 @@
-import {
-    ArrowRight,
-    CheckCircle2,
-    Star,
-    TrendingUp,
-    Shield,
-    Award,
-    Landmark,
-    Globe,
-    Hexagon,
-} from 'lucide-react';
-
+import { ArrowRight, CheckCircle2, Star, TrendingUp, Shield, Award, Landmark, Globe, Phone } from 'lucide-react';
+import logo from "../assets/Logo.jpeg";
 import { useNavigate } from 'react-router-dom';
 
 const stats = [
@@ -53,25 +43,70 @@ export default function Hero() {
             className="hero-bg min-h-screen flex items-center relative overflow-hidden"
         >
             {/* Logo Section */}
+            {/* Logo Section */}
             <div className="absolute top-0 left-0 w-full z-50 pt-6 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto flex items-center">
+                <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
+                    {/* Left Side - Logo */}
                     <button
                         onClick={() => navigate('/')}
                         className="flex items-center gap-3 group focus:outline-none"
                     >
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-                            <Hexagon className="w-6 h-6 text-white" />
-                        </div>
+                        <img
+                            src={logo}
+                            alt="One Page Tax & Finance Solutions"
+                            className="w-11 h-11 sm:w-14 sm:h-14 object-cover rounded-2xl shadow-lg border border-white/20 group-hover:scale-105 transition-all duration-300"
+                        />
 
-                        <span className="font-display font-bold text-2xl text-white tracking-wide">
+                        <span className="font-display font-bold text-sm sm:text-xl lg:text-2xl text-white tracking-wide leading-tight">
                             One Page
-                            <span className="text-gold-400">
+                            <span className="text-gold-400 block sm:inline sm:ml-1">
                                 Tax and Finance solutions
                             </span>
                         </span>
                     </button>
 
+                    {/* Right Side */}
+                    <div className="flex items-center gap-3 sm:gap-5">
+
+                        {/* Contact Number */}
+                        <a
+                            href="tel:+919876543210"
+                            className="hidden sm:flex items-center gap-2 text-white hover:text-gold-400 transition-all duration-300"
+                        >
+                            <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-md">
+                                <Phone className="w-4 h-4" />
+                            </div>
+
+                            <span className="font-semibold text-sm lg:text-base">
+                                +91 98765 43210
+                            </span>
+                        </a>
+
+                        {/* Consultation Button */}
+                        <button
+                            className="bg-gold-400 hover:bg-gold-500 text-black font-semibold px-4 sm:px-6 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg text-sm sm:text-base"
+                        >
+                            Get Consultation
+                        </button>
+
+                    </div>
+                </div>
+
+                {/* Mobile Contact */}
+                <div className="sm:hidden flex justify-end mt-3">
+                    <a
+                        href="tel:+919876543210"
+                        className="flex items-center gap-2 text-white hover:text-gold-400 transition-all duration-300"
+                    >
+                        <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center backdrop-blur-md">
+                            <Phone className="w-4 h-4" />
+                        </div>
+
+                        <span className="font-medium text-sm">
+                            +91 98765 43210
+                        </span>
+                    </a>
                 </div>
             </div>
 
@@ -111,16 +146,10 @@ export default function Hero() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="font-display text-3xl sm:text-4xl xl:text-5xl font-bold text-white leading-[1.1] mb-6">
-                            Your Trusted{' '}
+                        <h1 className="font-display text-2xl sm:text-3xl xl:text-4xl font-bold text-white leading-[1.1] mb-6">
+                            We handle the numbers,
                             <span className="gradient-text">
-                                Financial
-                            </span>
-
-                            <br />
-
-                            <span className="text-white">
-                                Partner
+                                You grow the business
                             </span>
                         </h1>
 
@@ -307,11 +336,11 @@ export default function Hero() {
 
                                 <div>
                                     <p className="text-white text-sm font-semibold">
-                                        100% Compliant
+                                        Your Entire Financial World
                                     </p>
 
                                     <p className="text-white/50 text-xs">
-                                        Tax & Legal
+                                        Simplified on One Page
                                     </p>
                                 </div>
                             </div>
