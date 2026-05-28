@@ -164,47 +164,11 @@ export default function Services() {
                                         ))}
                                     </ul>
 
-                                    {/* CTA */}
-                                    <button className={`flex items-center gap-2 text-sm font-semibold ${service.iconColor} group-hover:gap-3 transition-all duration-300`}>
-                                        Learn More
-                                        <ArrowRight className="w-4 h-4" />
-                                    </button>
                                 </div>
                             </div>
                         );
                     })}
 
-                    {/* CTA Card */}
-                    <div className="reveal md:col-span-2 lg:col-span-1" style={{ transitionDelay: '0.2s' }}>
-                        <div className="rounded-2xl h-full min-h-[280px] bg-gradient-to-br from-primary-700 to-primary-900 p-7 flex flex-col justify-between relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gold-400/10 rounded-full translate-y-1/2 -translate-x-1/4" />
-
-                            <div className="relative">
-                                <p className="text-gold-300 text-sm font-semibold mb-3">Not sure what you need?</p>
-                                <h3 className="font-display text-2xl font-bold text-white mb-3">
-                                    Get a Free Expert Consultation
-                                </h3>
-                                <p className="text-white/70 text-sm leading-relaxed">
-                                    Our team of Chartered Accountants will assess your needs and recommend the right solution.
-                                </p>
-                            </div>
-
-                            <button
-                                onClick={() => {
-                                    const el = document.getElementById('contact');
-                                    if (el) {
-                                        const top = el.getBoundingClientRect().top + window.scrollY - 80;
-                                        window.scrollTo({ top, behavior: 'smooth' });
-                                    }
-                                }}
-                                className="relative mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 font-semibold rounded-xl text-sm hover:shadow-gold-glow transition-all duration-300 w-fit"
-                            >
-                                Talk to an Expert
-                                <ArrowRight className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

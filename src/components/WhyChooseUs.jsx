@@ -1,63 +1,78 @@
 import { useEffect, useRef } from 'react';
 import {
-    ShieldCheck, Zap, Users, DollarSign,
+    ShieldCheck, Hourglass, Users, DollarSign,
     Clock, Trophy, HeartHandshake, TrendingUp
 } from 'lucide-react';
 
 const reasons = [
     {
         icon: ShieldCheck,
-        title: 'Trusted & Transparent',
-        description: 'Over 18 years of proven track record with complete transparency in all financial dealings. Your trust is our foundation.',
+        title: '7 Years Trusted & Transparent',
+        description:
+            'Over 7 years of proven track record with complete transparency in all financial dealings. Your trust is our foundation.',
         color: 'text-blue-500',
         bg: 'bg-blue-500/10',
     },
+
     {
-        icon: Trophy,
-        title: 'Expert CA Team',
-        description: '50+ qualified Chartered Accountants with deep expertise in Indian and international taxation laws.',
-        color: 'text-gold-500',
-        bg: 'bg-gold-500/10',
-    },
-    {
-        icon: Zap,
-        title: 'Fast Turnaround',
-        description: 'We commit to quick delivery without compromising quality. Most returns filed within 24-48 hours.',
+        icon: Hourglass,
+        title: 'SOP & Checklist Based Working Culture',
+        description:
+            'Structured workflows and standardized processes ensure accuracy, consistency, and timely delivery.',
         color: 'text-emerald-500',
         bg: 'bg-emerald-500/10',
     },
+
+    {
+        icon: Trophy,
+        title: 'Expert Team',
+        description:
+            'More than 260 hours yearly team trainings conducted to maintain high-quality professional expertise.',
+        color: 'text-gold-500',
+        bg: 'bg-gold-500/10',
+    },
+
     {
         icon: DollarSign,
         title: 'Competitive Pricing',
-        description: 'Premium services at affordable prices. No hidden charges. Flexible packages designed for startups and enterprises.',
+        description:
+            'Premium services at affordable prices with transparent and flexible pricing models.',
         color: 'text-rose-500',
         bg: 'bg-rose-500/10',
     },
+
     {
         icon: Clock,
         title: '24/7 Support',
-        description: 'Round-the-clock support via phone, email, and chat. Your queries are answered within 2 hours.',
+        description:
+            'Round-the-clock support via phone, email, and chat for seamless communication.',
         color: 'text-cyan-500',
         bg: 'bg-cyan-500/10',
     },
+
     {
         icon: HeartHandshake,
-        title: 'Dedicated Manager',
-        description: 'Every client gets a dedicated relationship manager who understands your business inside and out.',
+        title: 'Dedicated Relationship Manager',
+        description:
+            'Every client receives personalized attention from a dedicated relationship manager.',
         color: 'text-violet-500',
         bg: 'bg-violet-500/10',
     },
+
     {
         icon: TrendingUp,
-        title: 'Growth-Focused',
-        description: 'We don\'t just file returns — we actively advise on financial strategies to grow your business.',
+        title: 'Software Expertise',
+        description:
+            'Hands-on expertise in Zoho, Xero, Tally, QuickBooks, and other leading accounting platforms.',
         color: 'text-amber-500',
         bg: 'bg-amber-500/10',
     },
+
     {
         icon: Users,
-        title: 'Multi-Industry Expertise',
-        description: 'Extensive experience across IT, manufacturing, retail, healthcare, real estate, and more sectors.',
+        title: '3 Tier Hierarchy Structure',
+        description:
+            'Efficient organizational structure ensuring accuracy, review processes, and timely execution.',
         color: 'text-teal-500',
         bg: 'bg-teal-500/10',
     },
@@ -153,7 +168,7 @@ export default function WhyChooseUs() {
                             }}
                             className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 font-bold rounded-xl hover:shadow-gold-glow hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap"
                         >
-                            Start Today — It's Free
+                            Book your consultation
                         </button>
                     </div>
                 </div>

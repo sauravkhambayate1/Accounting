@@ -1,7 +1,8 @@
 import { ArrowRight, CheckCircle2, Star, TrendingUp, Shield, Award, Landmark, Globe, Phone } from 'lucide-react';
 import logo from "../assets/Logo.jpeg";
 import { useNavigate } from 'react-router-dom';
-
+import ContactModal from "./ConsultationModal";
+import { useState } from 'react';
 const stats = [
     { value: '1,200+', label: 'Happy Clients' },
     { value: '18+', label: 'Years Experience' },
@@ -36,13 +37,15 @@ const serviceOptions = [
 
 export default function Hero() {
     const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const handleShow = () => setShowModal(true);
 
+    const handleClose = () => setShowModal(false);
     return (
         <section
             id="home"
             className="hero-bg min-h-screen flex items-center relative overflow-hidden"
         >
-            {/* Logo Section */}
             {/* Logo Section */}
             <div className="absolute top-0 left-0 w-full z-50 pt-6 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
@@ -84,7 +87,7 @@ export default function Hero() {
                         </a>
 
                         {/* Consultation Button */}
-                        <button
+                        <button onClick={handleShow}
                             className="bg-gold-400 hover:bg-gold-500 text-black font-semibold px-4 sm:px-6 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg text-sm sm:text-base"
                         >
                             Get Consultation
@@ -403,6 +406,11 @@ export default function Hero() {
                     />
                 </svg>
             </div>
+
+            <ContactModal
+                show={showModal}
+                handleClose={handleClose}
+            />
         </section>
     );
 }

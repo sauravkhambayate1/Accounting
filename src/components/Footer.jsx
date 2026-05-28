@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import logo from "../assets/Logo.jpeg";
 
 const quickLinks = [
     { label: 'Home', href: '/' },
@@ -27,30 +27,6 @@ const socialLinks = [
         label: 'LinkedIn',
         hoverClass: 'hover:text-blue-400'
     },
-    {
-        icon: 'fa-brands fa-facebook-f',
-        href: 'https://facebook.com',
-        label: 'Facebook',
-        hoverClass: 'hover:text-blue-500'
-    },
-    {
-        icon: 'fa-brands fa-x-twitter',
-        href: 'https://twitter.com',
-        label: 'Twitter',
-        hoverClass: 'hover:text-sky-400'
-    },
-    {
-        icon: 'fa-brands fa-instagram',
-        href: 'https://instagram.com',
-        label: 'Instagram',
-        hoverClass: 'hover:text-rose-400'
-    },
-    {
-        icon: 'fa-brands fa-youtube',
-        href: 'https://youtube.com',
-        label: 'YouTube',
-        hoverClass: 'hover:text-rose-500'
-    },
 ];
 
 const scrollTo = (href) => {
@@ -63,56 +39,8 @@ const scrollTo = (href) => {
 };
 
 export default function Footer() {
-    const [email, setEmail] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
-
-    const handleSubscribe = (e) => {
-        e.preventDefault();
-        if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            setSubscribed(true);
-            setEmail('');
-            setTimeout(() => setSubscribed(false), 4000);
-        }
-    };
-
     return (
         <footer className="bg-slate-950 text-white relative overflow-hidden">
-
-            {/* Top gradient line */}
-            <div className="h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent" />
-
-            {/* Newsletter strip */}
-            <div className="border-b border-white/5 py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 className="font-display text-2xl font-bold text-white mb-1">
-                                Stay Updated with Tax Insights
-                            </h3>
-                            <p className="text-white/50 text-sm">
-                                Get monthly newsletters on tax changes, GST updates, and financial tips.
-                            </p>
-                        </div>
-                        <form onSubmit={handleSubscribe} className="flex gap-3 w-full md:w-auto">
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder={subscribed ? '✓ Subscribed!' : 'Enter your email'}
-                                className="flex-1 md:w-72 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 transition-all duration-200"
-                            />
-                            <button
-                                type="submit"
-                                className="px-5 py-3 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 font-semibold rounded-xl text-sm hover:shadow-gold-glow transition-all duration-300 whitespace-nowrap flex items-center gap-2"
-                            >
-                                {subscribed ? 'Subscribed!' : 'Subscribe'}
-                                <i className="fa-solid fa-arrow-right text-xs" />
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
             {/* Main footer */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -121,12 +49,27 @@ export default function Footer() {
                     <div className="sm:col-span-2 lg:col-span-1">
                         {/* Logo */}
                         <div className="flex items-center gap-2.5 mb-5">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-gold-glow">
-                                <i className="fa-solid fa-chart-line text-slate-900 text-base" />
-                            </div>
+                            <img
+                                src={logo}
+                                alt="One Page Tax & Finance Solutions"
+                                className="
+                                        w-11
+                                        h-11
+                                        sm:w-14
+                                        sm:h-14
+                                        object-cover
+                                        rounded-2xl
+                                        shadow-lg
+                                        border
+                                        border-white/20
+                                        group-hover:scale-105
+                                        transition-all
+                                        duration-300
+                                    "
+                            />
                             <div>
-                                <p className="font-display font-bold text-xl text-white leading-tight">TaxWise</p>
-                                <p className="text-[10px] font-medium tracking-widest uppercase text-gold-400 leading-tight">Consultancy</p>
+                                <p className="font-display font-bold text-xl text-white leading-tight">One Page</p>
+                                <p className="text-[10px] font-medium tracking-widest uppercase text-gold-400 leading-tight">Tax &Finance solutions</p>
                             </div>
                         </div>
 
@@ -245,32 +188,8 @@ export default function Footer() {
                                 </div>
                             </li>
 
-                            <li className="flex items-start gap-3">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/5">
-                                    <i className="fa-brands fa-whatsapp text-emerald-400 text-xs" />
-                                </div>
-                                <div>
-                                    <a
-                                        href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20services."
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-white/80 text-sm hover:text-emerald-400 transition-colors duration-200"
-                                    >
-                                        Chat on WhatsApp
-                                    </a>
-                                    <p className="text-white/40 text-xs mt-0.5">Quick responses guaranteed</p>
-                                </div>
-                            </li>
-                        </ul>
 
-                        {/* CTA button */}
-                        <button
-                            onClick={() => scrollTo('#contact')}
-                            className="mt-6 w-full py-3 px-4 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 font-semibold rounded-xl text-sm hover:shadow-gold-glow transition-all duration-300 flex items-center justify-center gap-2"
-                        >
-                            Get Consultation
-                            <i className="fa-solid fa-arrow-right text-xs" />
-                        </button>
+                        </ul>
                     </div>
                 </div>
             </div>

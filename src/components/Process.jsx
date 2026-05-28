@@ -233,9 +233,9 @@ export default function Process() {
                                     "Digital process — no paperwork",
                             },
                             {
-                                val: "Free",
+                                val: "24/7",
                                 label:
-                                    "First consultation always free",
+                                    "Dedicated client support",
                             },
                         ].map((item) => (
                             <div

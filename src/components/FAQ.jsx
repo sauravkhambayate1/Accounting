@@ -111,8 +111,10 @@ export default function FAQ() {
                             </p>
 
                             <a
-                                href="mailto:info@finproconsultancy.com"
-                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-xl text-sm font-medium hover:bg-white/20 transition-all duration-200"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@finproconsultancy.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-xl text-sm font-medium text-white hover:bg-white/20 transition-all duration-200"
                             >
                                 Email Us
                             </a>
