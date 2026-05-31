@@ -11,8 +11,8 @@ import ContactModal from "./ConsultationModal";
 
 const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
     { label: "Process", href: "#process" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },

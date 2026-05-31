@@ -157,12 +157,12 @@ export default function Hero() {
                         </h1>
 
                         {/* Description */}
-                        <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl">
+                        {/* <p className="text-lg text-white/70 leading-relaxed">
                             Expert accounting, taxation, GST compliance,
                             and business advisory services. We help
                             businesses across UAE and India achieve
                             financial clarity and growth.
-                        </p>
+                        </p> */}
 
                         {/* Highlights */}
                         <ul className="flex flex-col gap-2.5 mb-10">
