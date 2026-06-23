@@ -1,12 +1,12 @@
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
-from email.message import EmailMessage
-import smtplib
-import os
-import shutil
 from dotenv import load_dotenv
+import requests
+import os
+import base64
 
 load_dotenv()
+
 app = FastAPI()
 
 # ----------------------------
@@ -14,36 +14,26 @@ app = FastAPI()
 # ----------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # ----------------------------
-# Config
+# Environment Variables
 # ----------------------------
-UPLOAD_DIR = "resumes"
-os.makedirs(UPLOAD_DIR, exist_ok=True)
-
-# Your Gmail
-SENDER_EMAIL = os.getenv("SENDER_EMAIL")
-APP_PASSWORD = os.getenv("APP_PASSWORD")
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 HR_EMAIL = os.getenv("HR_EMAIL")
 
-print("EMAIL:", SENDER_EMAIL)
-print("HR:", HR_EMAIL)
-# ----------------------------
-# Health Check
-# ----------------------------
+
 @app.get("/")
 def home():
-    return {"message": "Career API Running Successfully"}
+    return {
+        "message": "Career API Running Successfully"
+    }
 
 
-# ----------------------------
-# Apply Endpoint
-# ----------------------------
 @app.post("/apply")
 async def apply_job(
     from_name: str = Form(...),
@@ -56,80 +46,56 @@ async def apply_job(
 ):
     try:
 
-        # ----------------------------
-        # Save Resume
-        # ----------------------------
-        file_path = os.path.join(
-            UPLOAD_DIR,
-            resume.filename
+        # Read uploaded file
+        file_content = await resume.read()
+
+        # Convert file to Base64
+        encoded_file = base64.b64encode(
+            file_content
+        ).decode("utf-8")
+
+        # Send Email via Resend
+        response = requests.post(
+            "https://api.resend.com/emails",
+            headers={
+                "Authorization": f"Bearer {RESEND_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "from": "onboarding@resend.dev",
+                "to": [HR_EMAIL],
+                "subject": f"New Job Application - {from_name}",
+                "html": f"""
+                <h2>New Job Application</h2>
+
+                <p><strong>Name:</strong> {from_name}</p>
+
+                <p><strong>Email:</strong> {from_email}</p>
+
+                <p><strong>Phone:</strong> {phone}</p>
+
+                <p><strong>Position:</strong> {position}</p>
+
+                <p><strong>Experience:</strong> {experience}</p>
+
+                <p><strong>Message:</strong></p>
+
+                <p>{message}</p>
+                """,
+                "attachments": [
+                    {
+                        "filename": resume.filename,
+                        "content": encoded_file
+                    }
+                ]
+            }
         )
 
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(resume.file, buffer)
-
-        # ----------------------------
-        # Email Body
-        # ----------------------------
-        email_message = EmailMessage()
-
-        email_message["Subject"] = (
-            f"New Job Application - {from_name}"
-        )
-
-        email_message["From"] = SENDER_EMAIL
-        email_message["To"] = HR_EMAIL
-        email_message["Reply-To"] = from_email
-
-        email_message.set_content(
-            f"""
-New Job Application Received
-
-Candidate Name: {from_name}
-
-Email: {from_email}
-
-Phone: {phone}
-
-Position Applied For: {position}
-
-Experience: {experience}
-
-Message:
-{message}
-"""
-        )
-
-        # ----------------------------
-        # Attach Resume
-        # ----------------------------
-        with open(file_path, "rb") as f:
-            email_message.add_attachment(
-                f.read(),
-                maintype="application",
-                subtype="octet-stream",
-                filename=resume.filename
-            )
-
-        # ----------------------------
-        # Send Email
-        # ----------------------------
-        with smtplib.SMTP_SSL(
-            "smtp.gmail.com",
-            465
-        ) as smtp:
-
-            smtp.login(
-                SENDER_EMAIL,
-                APP_PASSWORD
-            )
-
-            smtp.send_message(email_message)
-
-        # ----------------------------
-        # Delete File After Sending
-        # ----------------------------
-        if os.path.exists(file_path):
-            os.remove(file_path)
+        if response.status_code not in [200, 201]:
+            return {
+                "success": False,
+                "error": response.text
+            }
 
         return {
             "success": True,
@@ -141,16 +107,3 @@ Message:
             "success": False,
             "error": str(e)
         }
-
-
-# ----------------------------
-# Run Server
-# ----------------------------
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(
-        app,
-        host="0.0.0.0",
-        port=8000
-    )
