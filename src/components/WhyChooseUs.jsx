@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
     ShieldCheck, Hourglass, Users, DollarSign,
     Clock, Trophy, HeartHandshake, TrendingUp
 } from 'lucide-react';
+import ContactModal from "./ConsultationModal";
 
 const reasons = [
     {
@@ -80,7 +81,11 @@ const reasons = [
 
 export default function WhyChooseUs() {
     const sectionRef = useRef(null);
+    const [showModal, setShowModal] = useState(false);
 
+    const handleShow = () => setShowModal(true);
+
+    const handleClose = () => setShowModal(false);
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -162,10 +167,7 @@ export default function WhyChooseUs() {
                             <p className="text-white/60">Join 1,200+ businesses who trust The One Page || Tax & Finance Solutions for their financial success.</p>
                         </div>
                         <button
-                            onClick={() => {
-                                const el = document.getElementById('contact');
-                                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-                            }}
+                            onClick={handleShow}
                             className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 font-bold rounded-xl hover:shadow-gold-glow hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap"
                         >
                             Book your consultation
@@ -173,6 +175,11 @@ export default function WhyChooseUs() {
                     </div>
                 </div>
             </div>
+
+            <ContactModal
+                show={showModal}
+                handleClose={handleClose}
+            />
         </section>
     );
 }

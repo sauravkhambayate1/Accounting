@@ -1,64 +1,7 @@
 import { useEffect, useRef } from 'react';
-import {
-    Landmark, BarChart3, TrendingUp, Target, Zap, Users, ArrowRight,
-    FileText, DollarSign, Award, CheckCircle2
-} from 'lucide-react';
+import { Landmark } from 'lucide-react';
 import Navbar from './Navbar';
-import Footer from './Footer';
 
-const features = [
-    {
-        icon: Landmark,
-        title: 'Indian Tax Expertise',
-        description: 'Expert handling of Income Tax, GST, TDS, and complete Indian compliance requirements.',
-        color: 'text-orange-500',
-        bg: 'bg-orange-500/10',
-    },
-    {
-        icon: BarChart3,
-        title: 'Regulatory Compliance',
-        description: 'Full ROC compliance, audit requirements, and statutory filing expertise.',
-        color: 'text-blue-500',
-        bg: 'bg-blue-500/10',
-    },
-    {
-        icon: TrendingUp,
-        title: 'Growth Strategies',
-        description: 'Tax-efficient structures, incentives optimization, and expansion planning.',
-        color: 'text-emerald-500',
-        bg: 'bg-emerald-500/10',
-    },
-    {
-        icon: Target,
-        title: 'Cost Optimization',
-        description: 'Strategic tax planning to minimize liability and maximize profitability.',
-        color: 'text-gold-500',
-        bg: 'bg-gold-500/10',
-    },
-    {
-        icon: Zap,
-        title: 'Quick Turnaround',
-        description: 'Fast filing, instant responses, and efficient compliance management.',
-        color: 'text-rose-500',
-        bg: 'bg-rose-500/10',
-    },
-    {
-        icon: Users,
-        title: 'Dedicated Support',
-        description: 'Relationship managers who understand the Indian business landscape deeply.',
-        color: 'text-violet-500',
-        bg: 'bg-violet-500/10',
-    },
-];
-
-const services = [
-    { name: 'Income Tax Planning & Filing', icon: FileText },
-    { name: 'GST Registration & Compliance', icon: CheckCircle2 },
-    { name: 'TDS/TCS Management', icon: DollarSign },
-    { name: 'Corporate Audit Services', icon: Award },
-    { name: 'Statutory Compliance', icon: Landmark },
-    { name: 'Entity Structuring & Planning', icon: Target },
-];
 
 export default function IndianCorporate() {
     const sectionRef = useRef(null);

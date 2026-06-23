@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Globe, TrendingUp, ArrowRight, Award, FileText, BarChart3, DollarSign } from 'lucide-react';
+import { Globe, TrendingUp, Award, FileText, BarChart3, DollarSign } from 'lucide-react';
 import Navbar from './Navbar';
 
 const services = [
@@ -138,10 +138,7 @@ export default function GlobalCorporate() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-slate-900">{name}</h3>
-                                        <div className="flex items-center gap-2 mt-3 text-primary-600 text-sm font-medium">
-                                            Learn More
-                                            <ArrowRight className="w-4 h-4" />
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>

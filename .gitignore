@@ -21,3 +21,24 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python Virtual Environment
+venv/
+env/
+.venv/
+
+# Backend Environment Variables
+src/backend/.env
+
+# Uploaded Resumes
+src/backend/resumes/*
+!src/backend/resumes/.gitkeep
+
+# VS Code
+.vscode/

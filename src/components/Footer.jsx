@@ -1,7 +1,7 @@
 import logo from "../assets/Logo.jpeg";
 
 const quickLinks = [
-    { label: 'Home', href: '/' },
+    { label: 'Home', href: '#home' },
     { label: 'About Us', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'How It Works', href: '#process' },
@@ -31,7 +31,12 @@ const socialLinks = [
 
 const scrollTo = (href) => {
     const id = href.replace('#', '');
+    if (id === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
     const el = document.getElementById(id);
+
     if (el) {
         const top = el.getBoundingClientRect().top + window.scrollY - 80;
         window.scrollTo({ top, behavior: 'smooth' });

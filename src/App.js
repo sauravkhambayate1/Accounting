@@ -16,7 +16,6 @@ import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import ConsultationModal from './components/ConsultationModal';
 import GlobalCorporate from './components/GlobalCorporate';
 import IndianCorporate from './components/IndianCorporate';
 import ScrollToTop from './components/ScrollTotop/ScrollToTop';
@@ -40,9 +39,9 @@ function GlobalCorporatePage() {
 
       <GlobalCorporate />
 
+      <About />
       <Services />
       <WhyChooseUs />
-      <About />
       <Process />
       <Testimonials />
       <FAQ />
@@ -60,9 +59,9 @@ function IndianCorporatePage() {
 
       <IndianCorporate />
 
+      <About />
       <Services />
       <WhyChooseUs />
-      <About />
       <Process />
       <Testimonials />
       <FAQ />

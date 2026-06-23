@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import {
     FileText, Receipt, BookOpen, Users, Search, Building2,
-    LineChart, ArrowRight, CheckCircle2
+    LineChart, CheckCircle2
 } from 'lucide-react';
 
 const services = [

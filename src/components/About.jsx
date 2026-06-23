@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Award, Target, Eye, CheckCircle2, ArrowRight } from 'lucide-react';
+import WorkWithUsmodal from './WorkWithUsmodal';
 
 const values = [
     { icon: Target, label: 'Our Mission', text: 'Not only compliance but value addition' },
@@ -16,6 +17,9 @@ const achievements = [
 
 export default function About() {
     const sectionRef = useRef(null);
+    const [showModal, setShowModal] = useState(false);
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -103,10 +107,7 @@ export default function About() {
                         </div>
 
                         <button
-                            onClick={() => {
-                                const el = document.getElementById('contact');
-                                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-                            }}
+                            onClick={handleShow}
                             className="btn-primary-blue self-start"
                         >
                             Work With Us
@@ -116,6 +117,8 @@ export default function About() {
 
                 </div>
             </div>
+            <WorkWithUsmodal show={showModal}
+                handleClose={handleClose} />
         </section>
     );
 }

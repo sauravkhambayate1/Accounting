@@ -8,9 +8,9 @@ import {
 
 import logo from "../assets/Logo.jpeg";
 import ContactModal from "./ConsultationModal";
-
+import { useRef } from "react";
 const navLinks = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Process", href: "#process" },
@@ -23,6 +23,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const isManualScrolling = useRef(false);
     const [activeSection, setActiveSection] =
         useState("home");
 
@@ -31,28 +32,26 @@ export default function Navbar() {
     const handleClose = () => setShowModal(false);
     const navigate = useNavigate();
     useEffect(() => {
-
         const handleScroll = () => {
-
             setScrolled(window.scrollY > 20);
 
-            const sections = navLinks.map((link) =>
+            if (isManualScrolling.current) return;
+
+            if (window.scrollY < 100) {
+                setActiveSection("home");
+                return;
+            }
+
+            const sections = navLinks.map(link =>
                 link.href.replace("#", "")
             );
 
-            for (
-                let i = sections.length - 1;
-                i >= 0;
-                i--
-            ) {
-
-                const el = document.getElementById(
-                    sections[i]
-                );
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = document.getElementById(sections[i]);
 
                 if (
-                    el &&
-                    window.scrollY >= el.offsetTop - 120
+                    section &&
+                    window.scrollY >= section.offsetTop - 150
                 ) {
                     setActiveSection(sections[i]);
                     break;
@@ -60,53 +59,41 @@ export default function Navbar() {
             }
         };
 
-        window.addEventListener(
-            "scroll",
-            handleScroll,
-            {
-                passive: true,
-            }
-        );
+        window.addEventListener("scroll", handleScroll);
+
+        handleScroll();
 
         return () =>
-            window.removeEventListener(
-                "scroll",
-                handleScroll
-            );
-
+            window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const handleNavClick = (href) => {
-
         setIsOpen(false);
 
-        // Navigate Home without reload
-        if (href === "/") {
-            navigate("/");
-            return;
-        }
-
-        // Scroll for other sections
         const id = href.replace("#", "");
 
-        const el = document.getElementById(id);
+        // ✅ Block scroll handler BEFORE anything else
+        isManualScrolling.current = true;
 
-        if (el) {
+        // ✅ Set active immediately — scroll handler won't override it
+        setActiveSection(id);
 
-            const offset = 80;
-
-            const top =
-                el.getBoundingClientRect().top +
-                window.scrollY -
-                offset;
-
-            window.scrollTo({
-                top,
-                behavior: "smooth",
-            });
-
-            setActiveSection(id);
+        if (id === "home") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+            const section = document.getElementById(id);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: "smooth",
+                });
+            }
         }
+
+        // ✅ Release the lock after scroll animation completes
+        setTimeout(() => {
+            isManualScrolling.current = false;
+        }, 1000);
     };
 
     return (
@@ -124,9 +111,7 @@ export default function Navbar() {
 
                         {/* Logo */}
                         <button
-                            onClick={() =>
-                                handleNavClick("/")
-                            }
+                            onClick={() => navigate("/")}
                             className="flex items-center gap-2 sm:gap-3 group min-w-0"
                         >
 
@@ -188,15 +173,12 @@ export default function Navbar() {
                                         handleNavClick(link.href)
                                     }
                                     className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 group ${scrolled
-                                        ? activeSection ===
-                                            link.href.replace("#", "")
-                                            ? "text-primary-600"
-                                            : "text-slate-600 hover:text-primary-600 hover:bg-primary-50"
-                                        : activeSection ===
-                                            link.href.replace("#", "")
-                                            ? "text-gold-300"
-                                            : "text-white/80 hover:text-white hover:bg-white/10"
-                                        }`}
+                                        ? activeSection === link.href.replace("#", "")
+                                            ? "text-gold-500"
+                                            : "text-slate-600 hover:text-gold-500 hover:bg-gold-50"
+                                        : activeSection === link.href.replace("#", "")
+                                            ? "text-gold-500"
+                                            : "text-white/80 hover:text-gold-500 hover:bg-white/10"}`}
                                 >
 
                                     {link.label}
@@ -223,7 +205,7 @@ export default function Navbar() {
                                 onClick={handleShow}
                                 className="hidden sm:inline-flex items-center gap-2 px-4 lg:px-5 py-2.5 bg-gradient-to-r from-gold-500 to-gold-400 text-slate-900 text-sm font-semibold rounded-xl hover:shadow-gold-glow hover:-translate-y-0.5 active:scale-95 transition-all duration-300 whitespace-nowrap"
                             >
-                                Get Consultation
+                                Book Your Consultation
                             </button>
 
                             {/* Mobile Toggle */}
@@ -271,11 +253,7 @@ export default function Navbar() {
                                         handleNavClick(link.href);
                                         setIsOpen(false);
                                     }}
-                                    className={`flex items-center px-4 py-4 rounded-2xl text-base font-semibold text-left active:scale-[0.98] transition-all duration-200 ${activeSection ===
-                                        link.href.replace("#", "")
-                                        ? "bg-primary-50 text-primary-600"
-                                        : "text-slate-600 hover:bg-slate-50 hover:text-primary-600"
-                                        }`}
+                                    className={`flex items-center px-4 py-4 rounded-2xl text-base font-semibold ${activeSection === link.href.replace("#", "") ? "bg-primary-50 text-gold-500" : "text-slate-600 hover:bg-slate-50 hover:text-gold-500"}`}
                                 >
 
                                     {link.label}
