@@ -235,13 +235,13 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 <div
-                    className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen
+                    className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white ${isOpen
                         ? "max-h-screen opacity-100 translate-y-0"
                         : "max-h-0 opacity-0 -translate-y-2"
                         }`}
                 >
 
-                    <div className="bg-white/98 backdrop-blur-xl border-t border-slate-100 px-4 py-5 shadow-xl min-h-[calc(100vh-72px)] overflow-y-auto">
+                    <div className="bg-white border-t border-slate-100 px-4 py-5 shadow-xl min-h-[calc(100vh-72px)] overflow-y-auto">
 
                         <nav className="flex flex-col gap-2">
 
