@@ -14,7 +14,9 @@ import "./Consulatation.css";
 
 export default function WorkWithUsModal({ show, handleClose }) {
     const sectionRef = useRef(null);
-    const formRef = useRef(null); // ← emailjs reads the real <form> DOM node
+    const formRef = useRef(null);
+    const API_URL = process.env.REACT_APP_API_URL;
+    console.log(API_URL, "API_URL")
     const resumeRef = useRef(null);
     const [form, setForm] = useState({
         from_name: "",
@@ -119,7 +121,7 @@ export default function WorkWithUsModal({ show, handleClose }) {
             formData.append("resume", resume);
 
             const response = await fetch(
-                "http://127.0.0.1:8000/apply",
+                `${API_URL}/apply`,
                 {
                     method: "POST",
                     body: formData,
