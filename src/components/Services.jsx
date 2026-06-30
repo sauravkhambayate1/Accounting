@@ -4,6 +4,65 @@ import {
     LineChart, CheckCircle2
 } from 'lucide-react';
 
+const cardStyles = `
+.service-card-wrap {
+    position: relative;
+    border-radius: 16px 16px 0px 16px;
+    padding: 28px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 0 1px #e2e8f0, 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: none
+}
+
+.service-card-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px 16px 0px 16px;
+    background: linear-gradient(315deg, transparent 40px, #e2e8f0 40px);
+    z-index: 0;
+    margin: -1px;
+}
+
+.service-card-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 15px 15px 0px 15px;
+    background: linear-gradient(315deg, transparent 38px, #ffffff 38px);
+    z-index: 1;
+}
+
+.service-card-fold {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 57px;
+    height: 57px;
+    background: linear-gradient(135deg,
+            #c5cdd6 0%,
+            #b2bac3 50%,
+            transparent 50%);
+    border-top-left-radius: 12px;
+    filter: drop-shadow(-3px -3px 5px rgba(0, 0, 0, 0.12));
+    pointer-events: none;
+    z-index: 2;
+}
+
+.service-card-wrap > *:not(.service-card-fold) {
+    position: relative;
+    z-index: 2;
+}
+
+.service-card-outer:hover .service-card-wrap {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+`;
+
 const services = [
     {
         icon: FileText,
@@ -112,7 +171,9 @@ export default function Services() {
     }, []);
 
     return (
-        <section id="services" ref={sectionRef} className="py-24 bg-white relative overflow-hidden">
+        <section id="services" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+            <style>{cardStyles}</style>
+
             {/* Subtle bg decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary-50 rounded-full blur-3xl opacity-50 pointer-events-none -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-50 rounded-full blur-3xl opacity-60 pointer-events-none translate-y-1/2 -translate-x-1/2" />
@@ -141,12 +202,15 @@ export default function Services() {
                         return (
                             <div
                                 key={service.title}
-                                className="reveal gradient-border group cursor-pointer"
+                                className="reveal service-card-outer cursor-pointer"
                                 style={{ transitionDelay: delay }}
                             >
-                                <div className="bg-white rounded-2xl p-7 h-full flex flex-col transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-card-hover border border-slate-100">
+                                <div className="service-card-wrap">
+                                    {/* Folded corner */}
+                                    <div className="service-card-fold" />
+
                                     {/* Icon */}
-                                    <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110`}>
+                                    <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-5`}>
                                         <Icon className={`w-7 h-7 ${service.iconColor}`} />
                                     </div>
 
@@ -163,12 +227,10 @@ export default function Services() {
                                             </li>
                                         ))}
                                     </ul>
-
                                 </div>
                             </div>
                         );
                     })}
-
                 </div>
             </div>
         </section>

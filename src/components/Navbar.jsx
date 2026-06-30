@@ -94,9 +94,10 @@ export default function Navbar() {
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? "bg-white/95 backdrop-blur-xl shadow-[0_2px_30px_rgba(0,0,0,0.1)] py-2"
-                    : "bg-transparent py-3 sm:py-4"
+                    ? "bg-white shadow-[0_2px_30px_rgba(0,0,0,0.1)] py-2 sm:py-3"
+                    : "bg-transparent py-3 sm:py-5"
                     }`}
+                style={scrolled ? { backgroundColor: '#ffffff' } : {}}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between gap-2">
@@ -216,11 +217,13 @@ export default function Navbar() {
                                 alt="Logo"
                                 className="w-9 h-9 object-cover rounded-xl shadow"
                             />
-                            <div>
-                                <p className="text-sm font-bold text-slate-900 leading-tight">One Page</p>
-                                <p className="text-[9px] font-semibold uppercase tracking-wide text-blue-600">
-                                    Tax & Finance
-                                </p>
+                            <div className="flex flex-col text-left overflow-hidden leading-none">
+                                <span className={`font-bold text-sm sm:text-lg leading-none truncate transition-colors duration-300 ${scrolled ? "text-slate-900" : "text-red"}`}>
+                                    One Page
+                                </span>
+                                <span className={`text-[9px] sm:text-[11px] font-semibold tracking-wide uppercase truncate transition-colors duration-300 mt-0.5 ${scrolled ? "text-blue-600" : "text-black-300"}`}>
+                                    Tax & Finance Solutions
+                                </span>
                             </div>
                         </div>
                         <button

@@ -72,7 +72,7 @@ export default function FAQ() {
         <section
             id="faq"
             ref={sectionRef}
-            className="py-12 bg-white relative overflow-hidden"
+            className="py-12 my-12 bg-white relative overflow-hidden"
         >
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-50/50 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3" />
 

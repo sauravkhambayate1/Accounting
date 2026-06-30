@@ -47,10 +47,9 @@ export default function Footer() {
         <footer className="bg-slate-950 text-white relative overflow-hidden">
 
             {/* ── Main footer grid ── */}
-            {/* ── Main footer grid ── */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
 
                     {/* ── Brand Column ── */}
                     <div>
@@ -63,11 +62,11 @@ export default function Footer() {
                             />
 
                             <div>
-                                <p className="font-bold text-lg text-white leading-tight">
+                                <p className="font-bold text-lg text-white leading-tight m-0">
                                     One Page
                                 </p>
 
-                                <p className="text-[10px] uppercase tracking-widest text-gold-400">
+                                <p className="text-[10px] uppercase tracking-widest text-gold-400 m-0">
                                     Tax & Finance Solutions
                                 </p>
                             </div>
@@ -105,7 +104,7 @@ export default function Footer() {
                     </div>
 
                     {/* ── Mobile/Tablet Compact Links Section ── */}
-                    <div className="lg:col-span-2">
+                    <div className="md:col-span-2 lg:col-span-2">
 
                         <div className="grid grid-cols-2 gap-4 sm:gap-8">
 
@@ -226,9 +225,9 @@ export default function Footer() {
 
             {/* ── Bottom bar ── */}
             <div className="border-t border-white/5 py-5 sm:py-6">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row flex-wrap items-center justify-between gap-3 text-center">
 
-                    <p className="text-white/30 text-xs order-3 sm:order-1">
+                    <p className="text-white/30 text-xs order-3 sm:order-1 m-0">
                         © {new Date().getFullYear()} TaxWise Consultancy. All rights reserved.
                     </p>
 
@@ -248,7 +247,7 @@ export default function Footer() {
                         ))}
                     </div>
 
-                    <p className="text-white/20 text-xs flex items-center gap-1.5 order-2 sm:order-3">
+                    <p className="text-white/20 text-xs flex items-center gap-1.5 order-2 sm:order-3 m-0">
                         <i className="fa-solid fa-shield-halved text-gold-500/40" />
                         Registered with ICAI
                     </p>
